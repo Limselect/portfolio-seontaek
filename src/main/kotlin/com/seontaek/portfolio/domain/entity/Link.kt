@@ -3,7 +3,12 @@ package com.seontaek.portfolio.domain.entity
 import jakarta.persistence.*
 
 @Entity
-class Link : BaseEntity() {
+class Link(
+    name: String,
+    content: String,
+    isActive: Boolean,
+
+) : BaseEntity() {
 
     //    Id 어노테이션: 이 필드가 PK라는 것을 알림
     @Id
@@ -13,6 +18,12 @@ class Link : BaseEntity() {
     @Column(name = "link_id")
 //  자료형 뒤에 ?을 붙이면 null을 허용한다.
     var id: Long? = null
+
+    var name: String = name
+
+    var content: String = content
+
+    var isActive: Boolean = isActive
 
 //    기존 방법은
 //    val achievement: Achievement  (생성)

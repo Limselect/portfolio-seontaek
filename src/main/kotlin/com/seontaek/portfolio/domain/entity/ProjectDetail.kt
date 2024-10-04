@@ -3,7 +3,7 @@ package com.seontaek.portfolio.domain.entity
 import jakarta.persistence.*
 
 @Entity
-class ProjectDetail : BaseEntity() {
+class ProjectDetail(content: String, url: String?, isActive: Boolean) : BaseEntity() {
 
     //    Id 어노테이션: 이 필드가 PK라는 것을 알림
     @Id
@@ -14,8 +14,15 @@ class ProjectDetail : BaseEntity() {
 //  자료형 뒤에 ?을 붙이면 null을 허용한다.
     var id: Long? = null
 
-//    기존 방법은
-//    val achievement: Achievement  (생성)
-//    achievement.achievementId     (조회)
+    var content: String = content
 
+    var url: String? = url
+
+    var isActive: Boolean = isActive
+
+    fun update(content: String, url: String?, isActive: Boolean) {
+        this.content = content
+        this.url = url
+        this.isActive = isActive
+    }
 }

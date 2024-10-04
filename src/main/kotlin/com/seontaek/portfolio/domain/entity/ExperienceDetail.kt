@@ -1,9 +1,10 @@
 package com.seontaek.portfolio.domain.entity
 
 import jakarta.persistence.*
+import javax.swing.text.StyledEditorKit.BoldAction
 
 @Entity
-class ExperienceDetail : BaseEntity() {
+class ExperienceDetail(content: String, isActive: Boolean) : BaseEntity() {
 
     //    Id 어노테이션: 이 필드가 PK라는 것을 알림
     @Id
@@ -14,6 +15,14 @@ class ExperienceDetail : BaseEntity() {
 //  자료형 뒤에 ?을 붙이면 null을 허용한다.
     var id: Long? = null
 
+    var content: String = content
+
+    var isActive: Boolean = isActive
+
+    fun update(content: String, isActive: Boolean) {
+        this.content = content
+        this.isActive = isActive
+    }
 //    기존 방법은
 //    val achievement: Achievement  (생성)
 //    achievement.achievementId     (조회)
